@@ -5,11 +5,12 @@ import com.Library.Library.repository.BookRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BookService {
 
-   private final BookRepository bookRepository;
+   private  final BookRepository bookRepository;
 
     public BookService(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
@@ -17,8 +18,16 @@ public class BookService {
     public List<Book> getAll() {
         return  bookRepository.findAll();
     }
-    public Book addBook(Book newBook){
-        return bookRepository.save(newBook);
+    public void addBook(Book newBook){
+        bookRepository.save(newBook);
+
+    }
+    public void deleteBook(int id) {
+        bookRepository.deleteById(id);
+    }
+
+    public  Optional<Book> findBook(int id) {
+        return bookRepository.findById(id);
     }
 }
 

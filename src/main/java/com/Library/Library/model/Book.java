@@ -10,19 +10,14 @@ public class Book {
     private Long id;
     private String title;
 
-    public Book(Long id, String title, String author, String description, String isbn, String genre) {
-        this.id = id;
-        this.title = title;
-        this.author = author;
-        this.description = description;
-        this.isbn = isbn;
-        this.genre = genre;
-    }
-
     private String author;
     private String description;
     private String isbn;
     private String genre;
+
+    public Book(){
+
+    }
 
     public Long getId() {
         return id;
