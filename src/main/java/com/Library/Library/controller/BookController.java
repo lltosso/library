@@ -35,7 +35,7 @@ public class BookController {
 
     @GetMapping("/book/{id}")
     public ResponseEntity<Book> findBookById(@PathVariable int id){
-        Optional<Book> foundBook = BookService.findBook(id);
+        Optional<Book> foundBook = bookService.findBook(id);
 
         if(foundBook.isPresent()) {
             return new ResponseEntity<>(foundBook.get(), HttpStatus.FOUND);
