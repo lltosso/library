@@ -41,8 +41,18 @@ public class BookService {
                 Book existingBook = foundBook.get();
 
                 //Actualizar los campos
-                existingBook.setId(updatedBook.getName);
+                existingBook.setTitle(updatedBook.getTitle());
+                existingBook.setDescription(updatedBook.getDescription());
+                existingBook.setAuthor(updatedBook.getAuthor());
+                existingBook.setIsbn(updatedBook.getIsbn());
+                existingBook.setGenre(updatedBook.getGenre());
+
+                //Guarda el producto
+                return bookRepository.save(existingBook);
         }
+
+            //Enviar mensaje al usuario
+            throw new RuntimeException("Book not found with id: " + id);
 
     }
 

@@ -42,4 +42,17 @@ public class BookController {
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+
+    @PutMapping("/book/{id}")
+    public ResponseEntity<Book> updateBook(@PathVariable int id, @RequestBody Book
+             updatedBook) {
+    try {
+        //actualizar los campos del book en el caso de que encuentre
+        Book book =  bookService.updatedBook(id, updatedBook);
+        return new ResponseEntity<>(book, HttpStatus.OK);
+    } catch (Exception e) {
+        //en el caso que no se encuentre devuelve not found
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+    }
 }
