@@ -55,7 +55,7 @@ public class BookService {
             throw new RuntimeException("Book not found with id: " + id);
     }
 
-    // Filtrar por título
+    // Filtrar por título (FALTA COMPLETAR BOOK CONTROLLER!!!!) MAÑANA SE ACABA
     public Optional<Book> findBookByTitle(String title) {
         return bookRepository.findByTitle(title);
     }
