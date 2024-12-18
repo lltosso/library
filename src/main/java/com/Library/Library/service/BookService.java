@@ -53,8 +53,10 @@ public class BookService {
 
             //Enviar mensaje al usuario
             throw new RuntimeException("Book not found with id: " + id);
-
     }
 
-
+    // Filtrar por título
+    public Optional<Book> findBookByTitle(String title) {
+        return bookRepository.findByTitle(title);
+    }
 }
