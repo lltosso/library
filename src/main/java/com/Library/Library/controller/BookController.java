@@ -54,5 +54,33 @@ public class BookController {
         //en el caso que no se encuentre devuelve not found
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+
+    }
+    //FIND BY TITLE
+    @RequestMapping("/book/title/{title}")
+    public ResponseEntity<Book> findBookWithTitle(@PathVariable String title) {
+        Optional<Book> foundBookWithTitle = bookService.findBookByTitle(title);
+
+        if(foundBookWithTitle.isPresent()) {
+            return new ResponseEntity<>(foundBookWithTitle.get(), HttpStatus.FOUND);
+        } else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+    //FIND BY GENRE
+    @RequestMapping("/book/genre/{genre}")
+    public ResponseEntity<Book> findBookWithGenre(@PathVariable String genre) {
+        Optional<Book> foundBookWithGenre = bookService.findBookByGenre(genre);
+
+        if(foundBookWithGenre.isPresent()) {
+            return new ResponseEntity<>(foundBookWithGenre.get(), HttpStatus.FOUND);
+        } else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    //FIND BY AUTHOR
+    @RequestMapping("/book/author/{author}")
+    public ResponseEntity<Book> findBookWithAuthor(@PathVariable String author) {
+        Optional<Book> foundBookWithAuthor = bookService.findBookByAuthor(author);
+
+        if (foundBookWithAuthor.isPresent()) {
+            return new ResponseEntity<>(foundBookWithAuthor.get(), HttpStatus.FOUND);
+        } else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 }
